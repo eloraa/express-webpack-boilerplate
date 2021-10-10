@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const routes = require('../app/routes/v1')
 const { logs } = require('./vars')
 const error = require('../app/middlewares/error')
+const path = require('path')
 
 const app = express()
 
@@ -19,6 +20,7 @@ app.use('/', routes)
 
 // set view engine
 app.set('view engine', 'pug')
+app.set('views', path.join(__dirname, '../app/./views'))
 
 // if error is not an instanceOf APIError, convert it.
 app.use(error.converter)
