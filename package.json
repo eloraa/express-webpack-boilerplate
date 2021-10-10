@@ -2,8 +2,9 @@
   "name": "floema",
   "version": "1.0.0",
   "scripts": {
+    "start": "concurrently --kill-others \"npm run dev:backend\" \"npm run dev:frontend\"",
     "start:backend": "node ./express",
-    "dev:backend": "nodemon ./express",
+    "dev:backend": "node-dev --notify=false ./express",
     "dev:frontend": "webpack serve --client-progress --config ./bundler/webpack.dev.js",
     "build:frontent": "webpack --config ./bundler/webpack.prod.js"
   },
@@ -27,7 +28,7 @@
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.4.2",
-    "nodemon": "^2.0.13",
+    "node-dev": "^7.0.0",
     "portfinder-sync": "^0.0.2",
     "postcss-loader": "^6.1.1",
     "sass": "^1.42.1",
